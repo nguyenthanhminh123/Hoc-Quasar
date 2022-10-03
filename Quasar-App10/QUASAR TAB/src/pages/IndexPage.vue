@@ -1,5 +1,24 @@
 <template>
   <q-page class="flex flex-center">
+    <div>
+      <q-tabs v-model="tabs" outside-arrows dense switch-indicator-color="blue">
+        <q-tab :ripple="{ color: 'orange'}" name="home" label="Home" icon="home"/>
+        <q-tab :ripple="{ color: 'orange'}" name="mail" label="Mail" icon="mail">
+          <q-badge color="red" floating></q-badge>
+        </q-tab>
+        <q-tab :ripple="{ color: 'orange'}" name="alarms" label="Alarms" icon="alarms"/>
+        <q-btn-dropdown auto-close stretch flat label="More..">
+          <q-list>
+            <q-item clickable>
+              <q-item-section>Movies</q-item-section>
+            </q-item>
+            <q-item>
+              <q-item-section>Photos</q-item-section>
+            </q-item>
+          </q-list>
+        </q-btn-dropdown>
+      </q-tabs>
+    </div>
     <div class="q-px-md" style="with: 400px">
       <q-carousel 
         animated 
@@ -168,6 +187,7 @@ export default defineComponent({
   name: 'IndexPage',
   data() {
     return {
+      tabs: "home",
       carousel: "home",
       fullscreen: false,
       hideLabel: false,
